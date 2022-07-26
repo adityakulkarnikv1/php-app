@@ -11,6 +11,7 @@
       <label>Password: </label>
       <input type="password" name="password" placeholder="password" /></br>
       <button type="submit">Register</button>
+      <button type="submit" name="login">Login</button>
     </form>
   </body>
 </html>
@@ -19,6 +20,10 @@
 <?php
   session_start();
   include("config.php");
+
+  if(isset($_POST['login'])) {
+    header('Location: login.php');
+  }
 
   if(isset($_POST['username']) && isset($_POST['password'])) {
   

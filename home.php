@@ -6,16 +6,7 @@
   if(!$_SESSION['user']) {
     header('Location: login.php');
   } else {
-    $id = $_GET['autobot'];
-    $query = 'SELECT * FROM autobots WHERE id=' . $id . ';';
-    // echo $query;
-    $result = $conn->query($query);
-    if($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      // echo "!0 result";
-    } else {
-      // echo "0 results";
-    }
+
   }
 ?>
 <!DOCTYPE html>
@@ -29,23 +20,21 @@
     </style>
   </head>
   <body>
+    <h1>Welcome <?php echo $_SESSION['user']; ?>!!</h1>
     <form action="home.php" method="post">
       <button type="submit" name="logout">Logout</button>
     </form>
-    <table>
-      <tr> 
-        <th><h2>ID</h2></th>
-        <th><h2>Name</h2></th>
-        <th><h2>Description</h2></th>
-        <th><h2>Image</h2></th>
-      </tr>
-      <tr> 
-        <td><h3><?php echo $row['id']; ?></h3></td>
-        <td><h3><?php echo $row['name']; ?></h3></td>
-        <td><h3><?php echo $row['description']; ?></h3></td>
-        <td><img src="<?php echo $row['imagelink']; ?>" /></td>
-      </tr>
-    </table>
+    <h2>Autobots List</h2>
+    <ul>
+      <li><a href="/autobots.php?autobot=1">Optimus Prime</a></li>
+      <li><a href="/autobots.php?autobot=2">Ultramagnus</a></li>
+      <li><a href="/autobots.php?autobot=3">Ratchet</a></li>
+      <li><a href="/autobots.php?autobot=4">Bumblebee</a></li>
+      <li><a href="/autobots.php?autobot=5">Arcee</a></li>
+      <li><a href="/autobots.php?autobot=6">Bulkhead</a></li>
+      <li><a href="/autobots.php?autobot=7">Wheeljack</a></li>
+      <li><a href="/autobots.php?autobot=8">Smokescreen</a></li>
+    </ul>
   </body>
 </html>
 <?php
